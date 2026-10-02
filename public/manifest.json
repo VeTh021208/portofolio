@@ -1,0 +1,26 @@
+{
+  "name": "Muhammad Raffi Ar Rasyid — Portofolio",
+  "short_name": "MR Portfolio",
+  "description": "Portofolio Muhammad Raffi Ar Rasyid, software engineer dan creative developer. Membangun produk digital yang cepat, aksesibel, dan segar.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4faf7",
+  "theme_color": "#10b981",
+  "lang": "id-ID",
+  "categories": ["portfolio", "business", "personal"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

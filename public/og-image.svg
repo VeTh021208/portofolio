@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0" stop-color="#f4faf7"/>
+      <stop offset="1" stop-color="#d9f7e9"/>
+    </linearGradient>
+    <linearGradient id="far" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7dd3fc" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#bae6fd" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="mid" x1="0" y1="0" x2="0.2" y2="1">
+      <stop offset="0" stop-color="#4ade9c" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#0d8560" stop-opacity="0.65"/>
+    </linearGradient>
+    <linearGradient id="near" x1="0" y1="0" x2="0.2" y2="1">
+      <stop offset="0" stop-color="#10b981"/>
+      <stop offset="1" stop-color="#0b3b32"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#059669"/>
+      <stop offset="45" stop-color="#34d399"/>
+      <stop offset="100" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1020" cy="120" r="130" fill="#a7f3d0" opacity="0.45"/>
+  <circle cx="1040" cy="108" r="46" fill="#fde68a" opacity="0.95"/>
+
+  <!-- Baris kata kunci -->
+  <text x="80" y="120" font-family="Outfit, Segoe UI, sans-serif" font-size="20" font-weight="600" letter-spacing="4" fill="#7a9a90">PORTOFOLIO</text>
+
+  <text x="80" y="205" font-family="Outfit, Segoe UI, sans-serif" font-size="72" font-weight="800" fill="url(#title)">Muhammad Raffi Ar Rasyid</text>
+  <text x="80" y="268" font-family="Outfit, Segoe UI, sans-serif" font-size="36" font-weight="700" fill="#0b3b32">Software Engineer &amp; Creative Developer</text>
+  <text x="80" y="322" font-family="Segoe UI, sans-serif" font-size="24" fill="#4a6b62">Membangun produk digital yang segar seperti udara puncak gunung.</text>
+
+  <!-- Statistik -->
+  <g font-family="Outfit, Segoe UI, sans-serif">
+    <rect x="80" y="368" width="150" height="82" rx="18" fill="#ffffff" opacity="0.85"/>
+    <text x="155" y="406" text-anchor="middle" font-size="30" font-weight="800" fill="#059669">48+</text>
+    <text x="155" y="432" text-anchor="middle" font-size="14" fill="#7a9a90">Proyek</text>
+
+    <rect x="248" y="368" width="150" height="82" rx="18" fill="#ffffff" opacity="0.85"/>
+    <text x="323" y="406" text-anchor="middle" font-size="30" font-weight="800" fill="#059669">32</text>
+    <text x="323" y="432" text-anchor="middle" font-size="14" fill="#7a9a90">Klien</text>
+
+    <rect x="416" y="368" width="150" height="82" rx="18" fill="#ffffff" opacity="0.85"/>
+    <text x="491" y="406" text-anchor="middle" font-size="30" font-weight="800" fill="#059669">7 th</text>
+    <text x="491" y="432" text-anchor="middle" font-size="14" fill="#7a9a90">Pengalaman</text>
+
+    <rect x="584" y="368" width="170" height="82" rx="18" fill="#ffffff" opacity="0.85"/>
+    <text x="669" y="406" text-anchor="middle" font-size="30" font-weight="800" fill="#059669">4.9/5</text>
+    <text x="669" y="432" text-anchor="middle" font-size="14" fill="#7a9a90">Rating</text>
+  </g>
+
+  <!-- Gunung -->
+  <path d="M0 470 L200 330 L330 430 L470 300 L640 470 L790 340 L930 460 L1060 360 L1200 440 L1200 630 L0 630 Z" fill="url(#far)"/>
+  <path d="M470 300 L448 326 L470 318 L492 328 Z" fill="#ffffff" opacity="0.85"/>
+  <path d="M0 520 L160 430 L330 520 L500 410 L680 530 L860 430 L1030 520 L1200 450 L1200 630 L0 630 Z" fill="url(#mid)" opacity="0.9"/>
+  <path d="M0 580 L140 520 L300 578 L470 505 L640 580 L820 505 L990 578 L1120 528 L1200 560 L1200 630 L0 630 Z" fill="url(#near)"/>
+</svg>

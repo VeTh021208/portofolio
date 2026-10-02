@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Halaman yang tidak perlu diindeks
+Disallow: /404
+
+Sitemap: https://muhammadraffi.dev/sitemap.xml
