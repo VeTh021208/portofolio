@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0" stop-color="#f2ebdd"/>
+      <stop offset="1" stop-color="#fbe0e7"/>
+    </linearGradient>
+    <linearGradient id="far" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a7b2eb" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#c9d1f4" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="mid" x1="0" y1="0" x2="0.2" y2="1">
+      <stop offset="0" stop-color="#6672c6" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#3f4480" stop-opacity="0.65"/>
+    </linearGradient>
+    <linearGradient id="near" x1="0" y1="0" x2="0.2" y2="1">
+      <stop offset="0" stop-color="#de5578"/>
+      <stop offset="1" stop-color="#242749"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a72e4e"/>
+      <stop offset="45%" stop-color="#de5578"/>
+      <stop offset="100%" stop-color="#6672c6"/>
+    </linearGradient>
+    <pattern id="dots" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="1.2" fill="#292430" opacity="0.14"/>
+    </pattern>
+    <filter id="wobble" x="-3%" y="-3%" width="106%" height="106%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.014" numOctaves="3" seed="7" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="paper">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch" result="n"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" filter="url(#paper)" opacity="0.07"/>
+  <rect x="700" y="0" width="500" height="420" fill="url(#dots)"/>
+
+  <circle cx="1020" cy="120" r="130" fill="#f7c2d0" opacity="0.5"/>
+  <circle cx="1040" cy="108" r="46" fill="#e5be58" opacity="0.95"/>
+
+  <!-- Baris kata kunci -->
+  <text x="80" y="120" font-family="Segoe UI, sans-serif" font-size="20" font-weight="700" letter-spacing="4" fill="#8b8194">PORTOFOLIO</text>
+
+  <!-- Judul: font komik -->
+  <text x="80" y="210" font-family="Bangers, Impact, Segoe UI, sans-serif" font-size="82" letter-spacing="2" fill="url(#title)">Muhammad Raffi Ar Rasyid</text>
+  <text x="80" y="274" font-family="Bangers, Impact, Segoe UI, sans-serif" font-size="40" letter-spacing="2" fill="#292430">SISWA &amp; WEB DEVELOPER</text>
+  <text x="80" y="326" font-family="Segoe UI, sans-serif" font-size="24" fill="#524a5e">Membangun website yang keren dan menarik untuk sekolah, komunitas, dan UMKM.</text>
+
+  <!-- Statistik: panel komik dengan bayangan keras -->
+  <g font-family="Segoe UI, sans-serif">
+    <g>
+      <rect x="83" y="371" width="150" height="82" rx="14" fill="#292430" opacity="0.18"/>
+      <rect x="80" y="368" width="150" height="82" rx="14" fill="#fbf7ee" stroke="#292430" stroke-width="2.5"/>
+      <text x="155" y="406" text-anchor="middle" font-size="30" font-weight="800" fill="#a72e4e">3+</text>
+      <text x="155" y="432" text-anchor="middle" font-size="14" fill="#8b8194">Proyek</text>
+    </g>
+    <g>
+      <rect x="251" y="371" width="150" height="82" rx="14" fill="#292430" opacity="0.18"/>
+      <rect x="248" y="368" width="150" height="82" rx="14" fill="#fbf7ee" stroke="#292430" stroke-width="2.5"/>
+      <text x="323" y="406" text-anchor="middle" font-size="30" font-weight="800" fill="#a72e4e">6+</text>
+      <text x="323" y="432" text-anchor="middle" font-size="14" fill="#8b8194">Teknologi</text>
+    </g>
+    <g>
+      <rect x="419" y="371" width="150" height="82" rx="14" fill="#292430" opacity="0.18"/>
+      <rect x="416" y="368" width="150" height="82" rx="14" fill="#fbf7ee" stroke="#292430" stroke-width="2.5"/>
+      <text x="491" y="406" text-anchor="middle" font-size="30" font-weight="800" fill="#a72e4e">2 th</text>
+      <text x="491" y="432" text-anchor="middle" font-size="14" fill="#8b8194">Belajar</text>
+    </g>
+    <g>
+      <rect x="587" y="371" width="170" height="82" rx="14" fill="#292430" opacity="0.18"/>
+      <rect x="584" y="368" width="170" height="82" rx="14" fill="#fbf7ee" stroke="#292430" stroke-width="2.5"/>
+      <text x="669" y="406" text-anchor="middle" font-size="30" font-weight="800" fill="#a72e4e">SMK</text>
+      <text x="669" y="432" text-anchor="middle" font-size="14" fill="#8b8194">RPL</text>
+    </g>
+  </g>
+
+  <!-- Gunung bergaris tinta -->
+  <path d="M0 470 L200 330 L330 430 L470 300 L640 470 L790 340 L930 460 L1060 360 L1200 440 L1200 630 L0 630 Z" fill="url(#far)" filter="url(#wobble)"/>
+  <path d="M470 300 L448 326 L470 318 L492 328 Z" fill="#fbf7ee" opacity="0.85"/>
+  <path d="M0 520 L160 430 L330 520 L500 410 L680 530 L860 430 L1030 520 L1200 450 L1200 630 L0 630 Z" fill="url(#mid)" opacity="0.9" filter="url(#wobble)"/>
+  <path d="M0 580 L140 520 L300 578 L470 505 L640 580 L820 505 L990 578 L1120 528 L1200 560 L1200 630 L0 630 Z" fill="url(#near)" filter="url(#wobble)"/>
+</svg>

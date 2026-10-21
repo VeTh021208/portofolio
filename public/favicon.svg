@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f2ebdd"/>
+      <stop offset="1" stop-color="#fbe0e7"/>
+    </linearGradient>
+    <linearGradient id="back" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#a7b2eb"/>
+      <stop offset="1" stop-color="#6672c6"/>
+    </linearGradient>
+    <linearGradient id="front" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#de5578"/>
+      <stop offset="1" stop-color="#242749"/>
+    </linearGradient>
+    <filter id="wobble" x="-4%" y="-4%" width="108%" height="108%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="7" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#sky)" stroke="#292430" stroke-width="3"/>
+  <circle cx="46" cy="17" r="6" fill="#e5be58"/>
+  <path d="M2 46 L20 22 L32 38 L42 26 L62 52 L62 58 L2 58 Z" fill="url(#back)" opacity="0.55" filter="url(#wobble)"/>
+  <path d="M4 58 L24 30 L36 46 L46 34 L60 52 L60 58 Z" fill="url(#front)" filter="url(#wobble)"/>
+  <path d="M24 30 L19.5 36.2 L24 34.8 L28.5 36.2 Z" fill="#fbf7ee" opacity="0.9"/>
+  <path d="M46 34 L42.4 39.2 L46 38.1 L49.6 39.2 Z" fill="#fbf7ee" opacity="0.75"/>
+  <path d="M46 12.5 C43.2 10.2 38.6 11.1 38.9 14.6 C39.1 17.6 42.7 19.4 46 22 C49.3 19.4 52.9 17.6 53.1 14.6 C53.4 11.1 48.8 10.2 46 12.5 Z" fill="#de5578"/>
+  <path d="M46 13 L46 21" stroke="#451121" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+</svg>

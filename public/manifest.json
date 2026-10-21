@@ -1,0 +1,26 @@
+{
+  "name": "Muhammad Raffi Ar Rasyid — Portofolio",
+  "short_name": "MR Portfolio",
+  "description": "Portofolio Muhammad Raffi Ar Rasyid, siswa SMK RPL dan web developer. Membangun website yang cepat, rapi, dan menarik.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f2ebdd",
+  "theme_color": "#de5578",
+  "lang": "id-ID",
+  "categories": ["portfolio", "business", "personal"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
