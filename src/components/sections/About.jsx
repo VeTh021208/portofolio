@@ -47,7 +47,7 @@ function ProfileCard() {
             <div className="relative">
               <div className="relative overflow-hidden rounded-2xl border border-line bg-gradient-to-br from-mint-100 via-surface to-sky-peak-100 dark:from-pine-900 dark:via-surface dark:to-pine-800">
                 <img
-                  src="/Tentang.jpeg"
+                  src="/Nakano%20Nino.jpg"
                   alt={`Foto ${site.name}`}
                   width={543}
                   height={543}
