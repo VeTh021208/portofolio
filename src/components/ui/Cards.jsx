@@ -29,6 +29,7 @@ export function ProjectCard({ project, index = 0, onOpen }) {
 
   return (
     <motion.article
+      data-magnetic
       initial={{ opacity: 0, y: 26 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -140,6 +141,7 @@ export function ProjectRow({ project, index = 0, onOpen }) {
     >
       <button
         type="button"
+        data-magnetic
         onClick={() => onOpen?.(project)}
         className="group flex w-full items-center gap-4 rounded-2xl border border-line bg-surface p-3.5 text-left transition-all duration-400 hover:-translate-y-1 hover:border-mint-300 hover:shadow-[var(--shadow-lift)] sm:gap-5 sm:p-4"
         aria-label={`Lihat detail proyek ${project.title}`}

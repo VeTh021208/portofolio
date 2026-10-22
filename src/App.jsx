@@ -3,15 +3,17 @@ import { ThemeProvider } from '@/context/ThemeContext'
 import { Layout } from '@/components/layout/Layout'
 import { PaperBackdrop } from '@/components/ui/PaperBackdrop'
 import { ChibiFloatField } from '@/components/ui/ChibiSprites'
-import { CursorSakura } from '@/components/ui/CursorSakura'
+import { MagneticField } from '@/components/ui/MagneticField'
+import { CursorDot } from '@/components/ui/CursorDot'
 
 export default function App() {
   return (
     <ThemeProvider>
       <ToastProvider>
         <PaperBackdrop />
+        <MagneticField />
         <ChibiFloatField />
-        <CursorSakura />
+        <CursorDot />
         <Layout />
       </ToastProvider>
     </ThemeProvider>

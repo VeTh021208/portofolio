@@ -1,6 +1,7 @@
 import { motion } from 'motion/react'
 
 import { usePrefersReducedMotion } from '@/hooks/useUtils'
+import { CursorText } from '@/components/ui/CursorText'
 
 /**
  * Membungkus anak dengan animasi muncul saat masuk viewport.
@@ -86,7 +87,11 @@ export function SectionHeading({
       ) : null}
 
       <Reveal delay={0.08}>
-        <h2 className={`text-balance text-3xl font-bold sm:text-4xl lg:text-[2.75rem] ${titleClassName}`}>{title}</h2>
+        <CursorText
+          className={`text-balance text-3xl font-bold sm:text-4xl lg:text-[2.75rem] ${titleClassName}`}
+        >
+          {title}
+        </CursorText>
       </Reveal>
 
       {description ? (

@@ -8,7 +8,7 @@ import { Footer } from '@/components/layout/Footer'
 import { Navbar } from '@/components/layout/Navbar'
 import { Preloader } from '@/components/layout/Preloader'
 import { ScrollProgress } from '@/components/layout/ScrollProgress'
-import { ChatWidget, FloatingWhatsApp } from '@/components/chat/ChatWidget'
+import { ChatWidget } from '@/components/chat/ChatWidget'
 import { ProjectModal } from '@/components/ui/ProjectModal'
 import Landing from '@/pages/Landing'
 
@@ -76,7 +76,6 @@ export function Layout() {
       <Footer />
 
       <BackToTop />
-      <FloatingWhatsApp />
       <ChatWidget />
       <CommandPalette
         open={commandOpen}

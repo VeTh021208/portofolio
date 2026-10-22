@@ -14,6 +14,7 @@ export function StatsSection() {
           {site.stats.map((stat, index) => (
             <motion.div
               key={stat.label}
+              data-magnetic
               initial={{ opacity: 0, y: 26 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}

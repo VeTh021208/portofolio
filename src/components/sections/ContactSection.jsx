@@ -24,7 +24,7 @@ const INTEREST_OPTIONS = [
   { value: 'Lainnya', label: 'Topik lainnya' },
 ]
 
-/** Bagian kontak — formulir WhatsApp, info kontak, dan peta lokasi */
+/** Bagian kontak — formulir email, info kontak, dan peta lokasi */
 export function ContactSection() {
   const toast = useToast()
 
@@ -60,7 +60,8 @@ export function ContactSection() {
       return
     }
 
-    const message = [
+    const subject = `Pesan dari ${form.name} — ${form.interest}`
+    const body = [
       `Halo Kak Raffi! Saya ${form.name} ingin berdiskusi tentang sebuah proyek.`,
       '',
       form.message.trim(),
@@ -70,8 +71,8 @@ export function ContactSection() {
       `Email: ${form.email || 'tidak diisi'}`,
     ].join('\n')
 
-    window.open(buildWhatsAppLink(message), '_blank', 'noopener,noreferrer')
-    toast.success('Membuka WhatsApp dengan pesan Anda')
+    window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    toast.success('Membuka aplikasi email dengan pesan Anda')
   }
 
   const copyWa = async () => {
@@ -107,7 +108,7 @@ export function ContactSection() {
                 <div>
                   <h3 className="font-display text-xl font-extrabold">Kirim Pesan</h3>
                   <p className="mt-1 text-sm text-ink-soft">
-                    Isi formulir ini lalu saya akan buka WhatsApp dengan pesan yang sudah terisi.
+                    Isi formulir ini lalu aplikasi email Anda akan terbuka dengan pesan yang sudah terisi.
                   </p>
                 </div>
                 <span className="badge badge-mint">{Math.round(completion)}% terisi</span>
@@ -182,15 +183,17 @@ export function ContactSection() {
                 </Field>
               </div>
 
-              <motion.button
-                type="submit"
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                className="btn btn-primary mt-7 w-full"
-              >
-                <Send size={17} strokeWidth={2} />
-                Kirim lewat WhatsApp
-              </motion.button>
+              <div data-magnetic>
+                <motion.button
+                  type="submit"
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="btn btn-primary mt-7 w-full"
+                >
+                  <Send size={17} strokeWidth={2} />
+                  Kirim lewat Email
+                </motion.button>
+              </div>
 
               <p className="mt-3 text-center text-xs text-ink-muted">
                 Data Anda hanya dipakai untuk membalas pesan ini dan tidak disimpan di mana pun.
@@ -205,6 +208,7 @@ export function ContactSection() {
                 href={buildWhatsAppLink()}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-magnetic
                 className="group relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-mint-600 via-mint-500 to-sky-peak-500 p-6 text-white shadow-[var(--shadow-float)] transition-transform duration-400 hover:-translate-y-1"
               >
                 <div className="absolute -top-12 -right-8 size-40 rounded-full bg-white/15 blur-2xl" aria-hidden="true" />
@@ -214,7 +218,7 @@ export function ContactSection() {
                   </span>
                   <div className="min-w-0 flex-1">
                     <p className="text-xs font-semibold tracking-[0.14em] text-white/80 uppercase">Cara tercepat</p>
-                    <p className="mt-1 font-display text-xl font-extrabold">{whatsapp.display}</p>
+                    <p className="mt-1 font-display text-xl font-extrabold">Chat via WhatsApp</p>
                     <p className="mt-0.5 text-sm text-white/85">{site.responseTime}</p>
                   </div>
                 </div>
@@ -256,7 +260,6 @@ export function ContactSection() {
                 <h3 className="font-display text-base font-bold">Informasi lain</h3>
                 <ul className="mt-5 space-y-4">
                   <ContactRow icon="Mail" label="Email" value={site.email} href={`mailto:${site.email}`} />
-                  <ContactRow icon="Phone" label="Telepon" value={whatsapp.display} href={buildWhatsAppLink()} />
                   <ContactRow icon="MapPin" label="Lokasi" value={site.location.full} />
                   <ContactRow icon="Clock" label="Jam kerja" value={site.hours} />
                 </ul>

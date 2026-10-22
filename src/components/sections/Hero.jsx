@@ -46,11 +46,13 @@ export function Hero() {
               <span aria-hidden="true" className="ml-1 inline-block h-[1em] w-px animate-pulse bg-current align-middle" />
             </motion.p>
 
-            <motion.h1 {...rise(0.2)} className="mt-3 text-balance text-[2.6rem] leading-[1.05] font-extrabold sm:text-6xl lg:text-[4.2rem]">
-              <span className="text-gradient">Muhammad Raffi</span>
-              <br />
-              <span className="text-ink">Ar Rasyid</span>
-            </motion.h1>
+            <div data-magnetic>
+              <motion.h1 {...rise(0.2)} className="mt-3 text-balance text-[2.6rem] leading-[1.05] font-extrabold sm:text-6xl lg:text-[4.2rem]">
+                <span className="text-gradient">Muhammad Raffi</span>
+                <br />
+                <span className="text-ink">Ar Rasyid</span>
+              </motion.h1>
+            </div>
 
             <motion.p {...rise(0.3)} className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-ink-soft sm:text-lg">
               {site.tagline} Saya membantu sekolah, komunitas, dan UMKM membangun website yang cepat, aksesibel, dan punya
@@ -67,36 +69,40 @@ export function Hero() {
 
             {/* Tombol aksi */}
             <motion.div {...rise(0.46)} className="mt-9 flex flex-wrap items-center gap-3">
-              <motion.a
-                href={buildWhatsAppLink()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary group"
-                whileHover={{ y: -3 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                <Icon name="Whatsapp" size={18} />
-                Mulai Diskusi Gratis
-                <ArrowRight size={17} className="transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2.2} />
-              </motion.a>
+              <div data-magnetic>
+                <motion.a
+                  href={buildWhatsAppLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary group"
+                  whileHover={{ y: -3 }}
+                  whileTap={{ scale: 0.97 }}
+                >
+                  <Icon name="Whatsapp" size={18} />
+                  Mulai Diskusi Gratis
+                  <ArrowRight size={17} className="transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2.2} />
+                </motion.a>
+              </div>
 
               <motion.div whileHover={{ y: -3 }} whileTap={{ scale: 0.97 }}>
-                <a href="#karya" className="btn btn-outline group">
+                <a href="#karya" data-magnetic className="btn btn-outline group">
                   <Eye size={17} strokeWidth={2} />
                   Lihat Karya Saya
                 </a>
               </motion.div>
 
-              <motion.a
-                href="/cv-muhammad-raffi-ar-rasyid.pdf"
-                download
-                className="btn btn-ghost"
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                <Download size={16} strokeWidth={2} />
-                Unduh CV
-              </motion.a>
+              <div data-magnetic>
+                <motion.a
+                  href="/cv-muhammad-raffi-ar-rasyid.pdf"
+                  download
+                  className="btn btn-ghost"
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.97 }}
+                >
+                  <Download size={16} strokeWidth={2} />
+                  Unduh CV
+                </motion.a>
+              </div>
             </motion.div>
 
             {/* Kepercayaan */}
@@ -160,7 +166,7 @@ function ProfileShowcase() {
       />
 
       {/* Kartu utama */}
-      <div className="glass-strong relative overflow-hidden rounded-[2rem] p-6 shadow-[var(--shadow-float)]">
+      <div data-magnetic className="glass-strong relative overflow-hidden rounded-[2rem] p-6 shadow-[var(--shadow-float)]">
         {/* Foto profil sementara di dalam kartu */}
         <div className="relative mx-auto mb-6 w-full max-w-[18rem] overflow-hidden rounded-2xl border border-line bg-canvas">
           <img

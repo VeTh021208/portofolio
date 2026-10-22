@@ -19,9 +19,9 @@ export const site = {
   tagline: 'Membangun produk digital yang keren dan menarik.',
   greetings: ['Hai Minna', 'Selamat datang', 'Ini website portofolio saya', 'Enjoy guys'],
   description:
-    'Siswa SMK jurusan Rekayasa Perangkat Lunak yang serius mendalami web development, dari website sekolah sampai proyek pribadi.',
+    'Siswa SMK AK Nusa Bangsa jurusan Rekayasa Perangkat Lunak yang serius mendalami web development, dari website sekolah sampai proyek pribadi.',
   longDescription: [
-    'Saya seorang siswa SMK jurusan Rekayasa Perangkat Lunak yang serius mendalami pengembangan web. Saya mulai belajar coding dari bangku sekolah dan kini sedang mempersiapkan diri untuk PKL. Selama belajar, saya mengerjakan proyek-proyek nyata seperti website tugas sekolah, site profil, dan aplikasi web kecil untuk komunitas sekitar.',
+    'Saya seorang siswa SMK AK Nusa Bangsa jurusan Rekayasa Perangkat Lunak yang serius mendalami pengembangan web. Saya mulai belajar coding dari bangku sekolah dan kini sedang mempersiapkan diri untuk PKL. Selama belajar, saya mengerjakan proyek-proyek nyata seperti website tugas sekolah, site profil, dan aplikasi web kecil untuk komunitas sekitar.',
     'Saya percaya cara terbaik belajar adalah dengan langsung membangun sesuatu yang dipakai orang lain. Karena itu setiap proyek saya mulai dari masalah nyata, lalu saya selesaikan dengan kode yang rapi dan tampilan yang enak dilihat. Saya ingin terus berkembang lewat pengalaman PKL dan kolaborasi bersama tim profesional.',
   ],
   location: {
@@ -66,7 +66,7 @@ export const heroStats = [
 export const aboutFacts = [
   { value: statValue('projects'), label: 'Proyek pribadi' },
   { value: statValue('tech'), label: 'Teknologi dipelajari' },
-  { value: 'SMK RPL', label: 'Jurusan' },
+  { value: 'SMK AK Nusa Bangsa', label: 'Sekolah' },
 ]
 
 /** Nomor WhatsApp dalam format internasional tanpa tanda plus */
@@ -105,14 +105,14 @@ export const socials = [
   },
 ]
 
-/** Navigasi utama — tautan jangkar ke bagian landing page */
+/** Navigasi utama — tautan jangkar ke bagian landing page (cursor = varian gaya kursor) */
 export const navigation = [
-  { id: 'home', label: 'Beranda', href: '#atas', icon: 'Home' },
-  { id: 'profile', label: 'Tentang', href: '#tentang', icon: 'User' },
-  { id: 'products', label: 'Keahlian', href: '#keahlian', icon: 'Layers' },
-  { id: 'services', label: 'Layanan', href: '#layanan', icon: 'Briefcase' },
-  { id: 'documentation', label: 'Karya', href: '#karya', icon: 'FolderGit2' },
-  { id: 'contact', label: 'Kontak', href: '#kontak', icon: 'MessageCircle' },
+  { id: 'home', label: 'Beranda', href: '#atas', icon: 'Home', cursor: 'pixel' },
+  { id: 'profile', label: 'Tentang', href: '#tentang', icon: 'User', cursor: 'comic' },
+  { id: 'products', label: 'Keahlian', href: '#keahlian', icon: 'Layers', cursor: 'shatter' },
+  { id: 'services', label: 'Layanan', href: '#layanan', icon: 'Briefcase', cursor: 'burst' },
+  { id: 'documentation', label: 'Karya', href: '#karya', icon: 'FolderGit2', cursor: 'frame' },
+  { id: 'contact', label: 'Kontak', href: '#kontak', icon: 'MessageCircle', cursor: 'bubble' },
 ]
 
 /** Keahlian yang tampil di marquee beranda */

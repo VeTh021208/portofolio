@@ -1,7 +1,7 @@
 import { motion } from 'motion/react'
 import { ArrowUpRight, Clock, Mail, MapPin } from 'lucide-react'
 
-import { buildWhatsAppLink, navigation, processSteps, site, socials, whatsapp } from '@/data/siteData'
+import { buildWhatsAppLink, navigation, processSteps, site, socials } from '@/data/siteData'
 import { Icon } from '@/components/ui/Icon'
 import { BrandIcon } from '@/components/ui/BrandIcons'
 
@@ -98,10 +98,7 @@ export function Footer() {
                   className="flex items-start gap-2.5 py-0.5 text-sm text-ink-soft transition-colors hover:text-mint-600 dark:hover:text-mint-300"
                 >
                   <BrandIcon name="Whatsapp" width={16} height={16} className="mt-0.5 shrink-0 text-mint-500" />
-                  <span>
-                    {whatsapp.display}
-                    <span className="mt-0.5 block text-xs text-ink-muted">Chat via WhatsApp</span>
-                  </span>
+                  <span>Chat via WhatsApp</span>
                 </a>
               </li>
               <li>

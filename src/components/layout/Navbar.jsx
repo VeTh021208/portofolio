@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'motion/react'
 import { Menu, Moon, Search, Sun, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
-import { buildWhatsAppLink, navigation, site, socials, whatsapp } from '@/data/siteData'
+import { buildWhatsAppLink, navigation, site, socials } from '@/data/siteData'
 import { useActiveSection, useScrolled } from '@/hooks/useScroll'
 import { useLockBodyScroll } from '@/hooks/useUtils'
 import { useTheme } from '@/context/ThemeContext'
@@ -267,7 +267,7 @@ function MobileMenu({ onClose, isDark, toggleTheme, onOpenCommand, activeSection
           className="btn btn-primary mt-3 w-full"
         >
           <BrandIcon name="Whatsapp" width={18} height={18} />
-          Chat {whatsapp.display}
+          Chat via WhatsApp
         </a>
 
         <div className="mt-6 border-t border-line pt-5">

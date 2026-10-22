@@ -121,6 +121,7 @@ export function WorkSection({ onOpenProject }) {
               <button
                 key={cat.id}
                 type="button"
+                data-magnetic
                 onClick={() => setCategory(cat.id)}
                 className={cn('chip', category === cat.id && 'chip-active')}
                 aria-pressed={category === cat.id}

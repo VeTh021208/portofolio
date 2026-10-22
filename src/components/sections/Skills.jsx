@@ -22,7 +22,7 @@ export function SkillsSection() {
           <div className="mt-14 grid gap-5 md:grid-cols-2">
             {skillGroups.map((group, groupIndex) => (
               <Reveal key={group.id} delay={groupIndex * 0.09}>
-                <article className="h-full rounded-3xl border border-line bg-surface p-6 transition-colors duration-400 hover:border-mint-300">
+                <article data-magnetic className="h-full rounded-3xl border border-line bg-surface p-6 transition-colors duration-400 hover:border-mint-300">
                   <div className="flex items-center gap-3">
                     <span
                       className={cn('grid size-11 place-items-center rounded-2xl', toneClass(group.color))}
