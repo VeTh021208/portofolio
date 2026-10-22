@@ -1,5 +1,4 @@
-import { motion, useMotionValue, useSpring, useTransform } from 'motion/react'
-import { useEffect, useRef } from 'react'
+import { motion } from 'motion/react'
 
 import { useCountUp, usePrefersReducedMotion } from '@/hooks/useUtils'
 import { cn } from '@/lib/utils'
@@ -14,54 +13,6 @@ export function Counter({ value, suffix = '', prefix = '', decimals = 0, duratio
     <span ref={ref} className={cn('tabular-nums', className)}>
       {prefix}
       {display}
-      {suffix}
-    </span>
-  )
-}
-
-/**
- * Angka yang tersembul dari bawah dengan efek spring saat masuk layar.
- */
-export function SpringCounter({ value, suffix = '', decimals = 0, className = '' }) {
-  const ref = useRef(null)
-  const reduced = usePrefersReducedMotion()
-  const motionValue = useMotionValue(0)
-  const spring = useSpring(motionValue, { stiffness: 90, damping: 18, mass: 0.8 })
-  const text = useTransform(spring, (latest) => {
-    const rounded = latest.toFixed(decimals)
-    const [whole, fraction] = rounded.split('.')
-    const wholeFormatted = Number(whole).toLocaleString('id-ID')
-    return fraction ? `${wholeFormatted}.${fraction}` : wholeFormatted
-  })
-
-  useEffect(() => {
-    const element = ref.current
-    if (!element) return undefined
-
-    if (reduced) {
-      motionValue.set(value)
-      return undefined
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            motionValue.set(value)
-            observer.disconnect()
-          }
-        })
-      },
-      { threshold: 0.4 },
-    )
-
-    observer.observe(element)
-    return () => observer.disconnect()
-  }, [value, motionValue, reduced])
-
-  return (
-    <span ref={ref} className={cn('tabular-nums', className)}>
-      <motion.span>{text}</motion.span>
       {suffix}
     </span>
   )

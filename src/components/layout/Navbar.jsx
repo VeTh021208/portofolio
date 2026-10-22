@@ -49,13 +49,14 @@ export function Navbar({ onOpenCommand }) {
           >
             {/* Logo */}
             <a href="#atas" className="group flex shrink-0 items-center gap-2.5" aria-label={`${site.name}, beranda`}>
-              <span className="relative grid size-10 shrink-0 place-items-center overflow-hidden rounded-xl bg-gradient-to-br from-mint-500 to-sky-peak-400 shadow-[var(--shadow-mint)]">
-                <svg viewBox="0 0 40 40" className="size-7" aria-hidden="true">
-                  <path d="M2 30 L13 15 L20 24 L26 16 L38 30 L38 34 L2 34 Z" fill="white" opacity="0.95" />
-                  <path d="M13 15 L10.5 18.5 L13 17.5 L15.5 18.5 Z" fill="var(--color-mint-700)" opacity="0.6" />
-                  <circle cx="31" cy="9" r="3.4" fill="var(--color-sun-400)" />
-                </svg>
-                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/45 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+              <span className="relative size-10 shrink-0 overflow-hidden rounded-xl border border-line bg-canvas shadow-[var(--shadow-mint)]">
+                <img
+                  src="/Profile.jpeg"
+                  alt={`Foto ${site.name}`}
+                  width={40}
+                  height={40}
+                  className="size-full object-cover object-[center_25%]"
+                />
               </span>
               <span className="flex flex-col leading-none">
                 <span className="font-display text-base font-bold tracking-tight">{site.shortName}</span>

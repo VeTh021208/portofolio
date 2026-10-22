@@ -1,7 +1,7 @@
 import { motion } from 'motion/react'
 import { Briefcase, Download, GraduationCap, MapPin, Quote } from 'lucide-react'
 
-import { site, timeline } from '@/data/siteData'
+import { aboutFacts, site, timeline } from '@/data/siteData'
 import { cn } from '@/lib/utils'
 import { Icon } from '@/components/ui/Icon'
 import { Reveal, SectionHeading } from '@/components/ui/Reveal'
@@ -38,11 +38,7 @@ function ProfileCard() {
       <Reveal direction="right">
         <div className="relative">
           <div
-            className="absolute -inset-6 -z-10 rounded-[2.5rem] blur-3xl"
-            style={{
-              background:
-                'radial-gradient(circle at 40% 25%, color-mix(in srgb, var(--color-mint-300) 75%, transparent), transparent 65%)',
-            }}
+            className="glow-mint absolute -inset-6 -z-10 rounded-[2.5rem] blur-3xl"
             aria-hidden="true"
           />
 
@@ -51,12 +47,12 @@ function ProfileCard() {
             <div className="relative">
               <div className="relative overflow-hidden rounded-2xl border border-line bg-gradient-to-br from-mint-100 via-surface to-sky-peak-100 dark:from-pine-900 dark:via-surface dark:to-pine-800">
                 <img
-                  src="/hero-profile.png"
+                  src="/Tentang.jpeg"
                   alt={`Foto ${site.name}`}
                   width={543}
                   height={543}
                   loading="lazy"
-                  className="h-72 w-full object-cover object-top"
+                  className="h-80 w-full object-cover object-[center_25%]"
                 />
 
                 {/* Status tersedia */}
@@ -168,11 +164,7 @@ function AboutMe() {
       {/* Fakta singkat */}
       <Reveal delay={0.2}>
         <div className="mt-6 grid gap-3 sm:grid-cols-3">
-          {[
-            { value: '3+', label: 'Proyek pribadi' },
-            { value: '6+', label: 'Teknologi dipelajari' },
-            { value: 'SMK RPL', label: 'Jurusan' },
-          ].map((fact) => (
+          {aboutFacts.map((fact) => (
             <div
               key={fact.label}
               className="rounded-2xl border border-line bg-surface px-4 py-5 text-center transition-colors duration-400 hover:border-mint-300"
@@ -195,7 +187,7 @@ function TimelineSection() {
         <SectionHeading
           eyebrow="Perjalanan"
           title="Pengalaman dan Pendidikan"
-          description="Riwayat singkat perjalanan profesional saya dari bangku kuliah hingga memimpin tim pengembangan."
+          description="Riwayat singkat perjalanan saya belajar dan berkembang di dunia pengembangan web."
         />
 
         <div className="relative mx-auto mt-14 max-w-3xl">

@@ -1,8 +1,7 @@
 import { AnimatePresence, motion } from 'motion/react'
 import { ArrowUp } from 'lucide-react'
-import { useEffect, useState } from 'react'
 
-import { useScrollProgress } from '@/hooks/useScroll'
+import { useScrollProgress, useScrolled } from '@/hooks/useScroll'
 
 /**
  * Tombol kembali ke atas yang muncul setelah halaman digulir jauh,
@@ -10,18 +9,7 @@ import { useScrollProgress } from '@/hooks/useScroll'
  */
 export function BackToTop() {
   const progress = useScrollProgress()
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setVisible((window.scrollY || 0) > 600)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('lenis:scroll', onScroll)
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('lenis:scroll', onScroll)
-    }
-  }, [])
+  const visible = useScrolled(600)
 
   const scrollToTop = () => {
     const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches

@@ -14,18 +14,17 @@ import Landing from '@/pages/Landing'
 
 export function Layout() {
   const [commandOpen, setCommandOpen] = useState(false)
-  const [booted, setBooted] = useState(false)
   const [activeProject, setActiveProject] = useState(null)
 
   useLenis(true)
 
   // Gulir ke bagian yang dituju bila dibuka langsung dengan tautan jangkar
   useEffect(() => {
-    const hash = window.location.hash
-    if (!hash) return undefined
+    const id = window.location.hash.slice(1)
+    if (!id) return undefined
 
     const timer = setTimeout(() => {
-      document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }, 500)
     return () => clearTimeout(timer)
   }, [])
@@ -66,7 +65,7 @@ export function Layout() {
       </a>
 
       <ScrollProgress />
-      <Preloader onFinish={() => setBooted(true)} />
+      <Preloader />
 
       <Navbar onOpenCommand={openCommand} />
 
@@ -90,9 +89,6 @@ export function Layout() {
         onClose={() => setActiveProject(null)}
         onOpenProject={setActiveProject}
       />
-
-      {/* Penanda bahwa aplikasi sudah selesai memuat */}
-      <span className="sr-only" data-booted={booted} />
     </div>
   )
 }

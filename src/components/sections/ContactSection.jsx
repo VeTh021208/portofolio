@@ -15,6 +15,15 @@ const FORM_STEPS = [
   { id: 'message', label: 'Detail Pesan' },
 ]
 
+const INTEREST_OPTIONS = [
+  { value: '', label: 'Pilih topik yang dibahas' },
+  { value: 'Bikin Website Baru', label: 'Bikin Website Baru' },
+  { value: 'Perbaikan dan Optimasi', label: 'Perbaikan dan Optimasi' },
+  { value: 'Kolaborasi Proyek', label: 'Kolaborasi Proyek' },
+  { value: 'Diskusi PKL', label: 'Diskusi PKL' },
+  { value: 'Lainnya', label: 'Topik lainnya' },
+]
+
 /** Bagian kontak — formulir WhatsApp, info kontak, dan peta lokasi */
 export function ContactSection() {
   const toast = useToast()
@@ -26,18 +35,6 @@ export function ContactSection() {
     message: '',
   })
   const [errors, setErrors] = useState({})
-
-  const interestOptions = useMemo(
-    () => [
-      { value: '', label: 'Pilih topik yang dibahas' },
-      { value: 'Bikin Website Baru', label: 'Bikin Website Baru' },
-      { value: 'Perbaikan dan Optimasi', label: 'Perbaikan dan Optimasi' },
-      { value: 'Kolaborasi Proyek', label: 'Kolaborasi Proyek' },
-      { value: 'Diskusi PKL', label: 'Diskusi PKL' },
-      { value: 'Lainnya', label: 'Topik lainnya' },
-    ],
-    [],
-  )
 
   const setField = (field, value) => {
     setForm((prev) => ({ ...prev, [field]: value }))
@@ -163,7 +160,7 @@ export function ContactSection() {
                     aria-invalid={Boolean(errors.interest)}
                     className={cn(inputClass(Boolean(errors.interest)), 'cursor-pointer')}
                   >
-                    {interestOptions.map((option) => (
+                    {INTEREST_OPTIONS.map((option) => (
                       <option key={option.value} value={option.value}>
                         {option.label}
                       </option>
@@ -218,7 +215,7 @@ export function ContactSection() {
                   <div className="min-w-0 flex-1">
                     <p className="text-xs font-semibold tracking-[0.14em] text-white/80 uppercase">Cara tercepat</p>
                     <p className="mt-1 font-display text-xl font-extrabold">{whatsapp.display}</p>
-                    <p className="mt-0.5 text-sm text-white/85">Biasanya membalas dalam 2 jam</p>
+                    <p className="mt-0.5 text-sm text-white/85">{site.responseTime}</p>
                   </div>
                 </div>
 
@@ -255,15 +252,15 @@ export function ContactSection() {
               </button>
 
               {/* Detail */}
-              <ul className="rounded-[2rem] border border-line bg-surface p-6">
+              <div className="rounded-[2rem] border border-line bg-surface p-6">
                 <h3 className="font-display text-base font-bold">Informasi lain</h3>
                 <ul className="mt-5 space-y-4">
                   <ContactRow icon="Mail" label="Email" value={site.email} href={`mailto:${site.email}`} />
                   <ContactRow icon="Phone" label="Telepon" value={whatsapp.display} href={buildWhatsAppLink()} />
                   <ContactRow icon="MapPin" label="Lokasi" value={site.location.full} />
-                  <ContactRow icon="Clock" label="Jam kerja" value="Senin sampai Jumat, 09.00 sampai 18.00 WIB" />
+                  <ContactRow icon="Clock" label="Jam kerja" value={site.hours} />
                 </ul>
-              </ul>
+              </div>
 
               {/* Media sosial */}
               <div className="rounded-[2rem] border border-line bg-surface p-6">

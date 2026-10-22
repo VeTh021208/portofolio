@@ -1,8 +1,9 @@
 import { AnimatePresence, motion } from 'motion/react'
 import { MessageCircle, X } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import { quickReplies, site, whatsapp, buildWhatsAppLink } from '@/data/siteData'
+import { useScrolled } from '@/hooks/useScroll'
 import { usePrefersReducedMotion } from '@/hooks/useUtils'
 import { cn } from '@/lib/utils'
 import { BrandIcon } from '@/components/ui/BrandIcons'
@@ -12,18 +13,7 @@ import { BrandIcon } from '@/components/ui/BrandIcons'
  * Muncul setelah pengunjung melewati ambang scroll tertentu.
  */
 export function FloatingWhatsApp() {
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setVisible((window.scrollY || 0) > 200)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('lenis:scroll', onScroll)
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('lenis:scroll', onScroll)
-    }
-  }, [])
+  const visible = useScrolled(200)
 
   return (
     <AnimatePresence>
@@ -63,18 +53,7 @@ export function FloatingWhatsApp() {
  */
 export function ChatWidget() {
   const [open, setOpen] = useState(false)
-  const [seen, setSeen] = useState(false)
   const reduced = usePrefersReducedMotion()
-
-  // Sapaan otomatis setelah pengunjung beberapa detik di halaman
-  useEffect(() => {
-    if (seen) return undefined
-    const timer = setTimeout(() => {
-      setOpen(true)
-      setSeen(true)
-    }, 9000)
-    return () => clearTimeout(timer)
-  }, [seen])
 
   return (
     <>
@@ -121,7 +100,7 @@ export function ChatWidget() {
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="font-display text-base font-bold">{site.name}</p>
-                  <p className="mt-0.5 text-xs text-white/85">Online biasanya membalas dalam 2 jam</p>
+                  <p className="mt-0.5 text-xs text-white/85">{site.responseTime}</p>
                 </div>
               </div>
             </div>

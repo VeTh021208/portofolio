@@ -27,7 +27,7 @@ export function ThemeProvider({ children }) {
     root.style.colorScheme = theme
 
     const meta = document.querySelector('meta[name="theme-color"]')
-    if (meta) meta.setAttribute('content', theme === 'dark' ? '#071A15' : '#10B981')
+    if (meta) meta.setAttribute('content', theme === 'dark' ? '#2c2733' : '#de5578')
 
     try {
       localStorage.setItem(STORAGE_KEY, theme)

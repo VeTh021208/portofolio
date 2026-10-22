@@ -2,60 +2,9 @@ import { motion } from 'motion/react'
 import { ChevronDown } from 'lucide-react'
 import { useState } from 'react'
 
-import { faqs, site } from '@/data/siteData'
+import { faqs } from '@/data/siteData'
 import { cn } from '@/lib/utils'
-import { Counter } from '@/components/ui/Counter'
-import { Icon } from '@/components/ui/Icon'
 import { SectionHeading } from '@/components/ui/Reveal'
-
-/** Deretan statistik dengan angka yang menghitung naik */
-export function StatsSection() {
-  return (
-    <section className="relative py-16 sm:py-20">
-      <div className="container-page">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {site.stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 26 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: index * 0.09, ease: [0.22, 1, 0.36, 1] }}
-              className="group relative overflow-hidden rounded-3xl border border-line bg-surface p-6 text-center card-hover"
-            >
-              {/* Kilau */}
-              <span
-                className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-600 group-hover:opacity-100"
-                style={{
-                  background:
-                    'radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--color-mint-200) 45%, transparent), transparent 70%)',
-                }}
-                aria-hidden="true"
-              />
-
-              <span
-                className={cn(
-                  'relative mx-auto grid size-12 place-items-center rounded-2xl transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6',
-                  stat.color === 'mint' && 'bg-mint-50 text-mint-600 dark:bg-mint-900/60 dark:text-mint-300',
-                  stat.color === 'sky' && 'bg-sky-peak-100 text-sky-peak-600 dark:bg-sky-peak-700/40 dark:text-sky-peak-200',
-                  stat.color === 'sun' && 'bg-sun-200 text-sun-600 dark:bg-sun-600/30 dark:text-sun-200',
-                  stat.color === 'pine' && 'bg-pine-100 text-pine-700 dark:bg-pine-900 dark:text-pine-200',
-                )}
-              >
-                <Icon name={stat.icon} size={22} strokeWidth={2} />
-              </span>
-
-              <p className="relative mt-4 font-display text-3xl font-extrabold sm:text-4xl">
-                <Counter value={stat.value} suffix={stat.suffix} decimals={stat.decimals ?? 0} />
-              </p>
-              <p className="relative mt-1 text-sm font-medium text-ink-muted">{stat.label}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
 
 /** Daftar pertanyaan umum yang bisa dibuka-tutup */
 export function FaqSection({ items = faqs, columns = 2, id }) {
@@ -73,6 +22,7 @@ export function FaqSection({ items = faqs, columns = 2, id }) {
         <div className={cn('mt-12 grid gap-3', columns === 2 ? 'lg:grid-cols-2' : '')}>
           {items.map((item, index) => {
             const open = openId === item.id
+            const answerId = `faq-jawaban-${item.id}`
 
             return (
               <motion.div
@@ -91,6 +41,7 @@ export function FaqSection({ items = faqs, columns = 2, id }) {
                     type="button"
                     onClick={() => setOpenId(open ? null : item.id)}
                     aria-expanded={open}
+                    aria-controls={answerId}
                     className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
                   >
                     <span
@@ -115,6 +66,7 @@ export function FaqSection({ items = faqs, columns = 2, id }) {
                 </h3>
 
                 <motion.div
+                  id={answerId}
                   initial={false}
                   animate={{ height: open ? 'auto' : 0, opacity: open ? 1 : 0 }}
                   transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}

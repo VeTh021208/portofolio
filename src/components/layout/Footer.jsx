@@ -15,8 +15,7 @@ export function Footer() {
     <footer className="relative mt-24 overflow-hidden border-t border-line bg-surface">
       {/* Cahaya lembut di belakang */}
       <div
-        className="pointer-events-none absolute -top-32 left-1/2 size-[36rem] -translate-x-1/2 rounded-full blur-3xl"
-        style={{ background: 'radial-gradient(circle, color-mix(in srgb, var(--color-mint-300) 45%, transparent), transparent 70%)' }}
+        className="glow-mint-center pointer-events-none absolute -top-32 left-1/2 size-[36rem] -translate-x-1/2 rounded-full blur-3xl"
         aria-hidden="true"
       />
 
@@ -121,8 +120,8 @@ export function Footer() {
               <li className="flex items-start gap-2.5 text-sm text-ink-soft">
                 <Clock size={16} className="mt-0.5 shrink-0 text-mist-400" />
                 <span>
-                  Setiap hari, 08.00 - 21.00 WIB
-                  <span className="mt-0.5 block text-xs text-ink-muted">Respons rata-rata 1x24 jam</span>
+                  {site.hours}
+                  <span className="mt-0.5 block text-xs text-ink-muted">{site.responseTime}</span>
                 </span>
               </li>
             </ul>
@@ -135,7 +134,7 @@ export function Footer() {
             <span>&copy; {year} {site.name}. Seluruh hak cipta dilindungi.</span>
             <span className="mt-1 block">
               Dibangun dengan <span className="font-semibold text-mint-600 dark:text-mint-300">React</span> dan
-              design system Mint Highlands.
+              design system Paper Manga.
             </span>
           </p>
 

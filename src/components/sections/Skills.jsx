@@ -1,12 +1,10 @@
 import { motion } from 'motion/react'
 
-import { skillGroups } from '@/data/siteData'
-import { cn } from '@/lib/utils'
+import { skillGroups, skillsMarquee } from '@/data/siteData'
+import { cn, toneClass } from '@/lib/utils'
 import { ProgressBar } from '@/components/ui/Counter'
 import { Icon } from '@/components/ui/Icon'
 import { Reveal, SectionHeading } from '@/components/ui/Reveal'
-
-const TECH_CHIPS = ['HTML', 'CSS', 'JavaScript', 'React', 'Tailwind CSS', 'PHP', 'MySQL', 'Git', 'Figma']
 
 /** Bagian kemampuan — persentase per bidang plus pita teknologi */
 export function SkillsSection() {
@@ -27,13 +25,7 @@ export function SkillsSection() {
                 <article className="h-full rounded-3xl border border-line bg-surface p-6 transition-colors duration-400 hover:border-mint-300">
                   <div className="flex items-center gap-3">
                     <span
-                      className={cn(
-                        'grid size-11 place-items-center rounded-2xl',
-                        group.color === 'mint' && 'bg-mint-50 text-mint-600 dark:bg-mint-900/60 dark:text-mint-300',
-                        group.color === 'sky' && 'bg-sky-peak-100 text-sky-peak-600 dark:bg-sky-peak-700/40 dark:text-sky-peak-200',
-                        group.color === 'sun' && 'bg-sun-200 text-sun-600 dark:bg-sun-600/30 dark:text-sun-200',
-                        group.color === 'pine' && 'bg-pine-100 text-pine-700 dark:bg-pine-900 dark:text-pine-200',
-                      )}
+                      className={cn('grid size-11 place-items-center rounded-2xl', toneClass(group.color))}
                     >
                       <Icon name={group.icon} size={20} strokeWidth={1.9} />
                     </span>
@@ -71,7 +63,7 @@ function TechMarquee() {
     <section className="relative border-y border-line bg-surface/60 py-6">
       <div className="container-page">
         <div className="flex flex-wrap items-center justify-center gap-2.5">
-          {TECH_CHIPS.map((tech) => (
+          {skillsMarquee.map((tech) => (
             <motion.span
               key={tech}
               initial={{ opacity: 0, scale: 0.9 }}

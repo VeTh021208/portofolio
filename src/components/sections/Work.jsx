@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react'
 
 import { projectCategories, projects } from '@/data/siteData'
 import { cn } from '@/lib/utils'
-import { ProjectCard } from '@/components/ui/Cards'
+import { ProjectCard, ProjectRow } from '@/components/ui/Cards'
 import { Icon } from '@/components/ui/Icon'
 import { Reveal, SectionHeading } from '@/components/ui/Reveal'
 
@@ -159,18 +159,22 @@ export function WorkSection({ onOpenProject }) {
           ) : null}
         </div>
 
-        {/* Grid proyek */}
+        {/* Hasil proyek */}
         {filtered.length > 0 ? (
           <div
             className={cn(
               'mt-8',
-              view === 'grid' ? 'grid gap-5 sm:grid-cols-2 lg:grid-cols-3' : 'grid gap-4 lg:grid-cols-2',
+              view === 'grid' ? 'grid gap-5 sm:grid-cols-2 lg:grid-cols-3' : 'grid gap-3',
             )}
           >
             <AnimatePresence mode="popLayout">
-              {filtered.map((project, index) => (
-                <ProjectCard key={project.id} project={project} index={index} onOpen={onOpenProject} />
-              ))}
+              {filtered.map((project, index) =>
+                view === 'grid' ? (
+                  <ProjectCard key={project.id} project={project} index={index} onOpen={onOpenProject} />
+                ) : (
+                  <ProjectRow key={project.id} project={project} index={index} onOpen={onOpenProject} />
+                ),
+              )}
             </AnimatePresence>
           </div>
         ) : (

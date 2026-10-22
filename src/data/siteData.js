@@ -37,6 +37,9 @@ export const site = {
     status: 'available',
     label: 'Tersedia untuk proyek baru',
   },
+  /** Jam kerja dan estimasi respons — dipakai di Footer, Kontak, dan Chat */
+  hours: 'Setiap hari, 08.00 sampai 21.00 WIB',
+  responseTime: 'Respons rata-rata 1x24 jam',
   stats: [
     { id: 'projects', value: 3, suffix: '+', label: 'Proyek Pribadi', icon: 'Rocket', color: 'mint' },
     { id: 'experience', value: 2, suffix: ' th', label: 'Belajar Coding', icon: 'Award', color: 'sun' },
@@ -44,6 +47,27 @@ export const site = {
     { id: 'course', value: 2, suffix: '', label: 'Kursus Online', icon: 'GraduationCap', color: 'pine' },
   ],
 }
+
+/** Angka cepat dari site.stats — dipakai di Hero dan bagian Tentang */
+const statValue = (id) => {
+  const stat = site.stats.find((item) => item.id === id)
+  return `${stat.value}${stat.suffix}`
+}
+
+/** Baris kepercayaan di bawah tombol aksi Hero */
+export const heroStats = [
+  { value: statValue('projects'), label: 'Proyek' },
+  { value: statValue('tech'), label: 'Teknologi' },
+  { value: statValue('experience'), label: 'Belajar' },
+  { value: 'RPL', label: 'Jurusan' },
+]
+
+/** Fakta singkat di bagian Tentang */
+export const aboutFacts = [
+  { value: statValue('projects'), label: 'Proyek pribadi' },
+  { value: statValue('tech'), label: 'Teknologi dipelajari' },
+  { value: 'SMK RPL', label: 'Jurusan' },
+]
 
 /** Nomor WhatsApp dalam format internasional tanpa tanda plus */
 export const whatsapp = {
@@ -56,60 +80,20 @@ export const whatsapp = {
 
 export const socials = [
   {
-    id: 'instagram',
-    label: 'Instagram',
-    handle: '@muhammad.raffi',
-    url: 'https://instagram.com/muhammad.raffi',
-    icon: 'Instagram',
-    color: '#E1306C',
-  },
-  {
-    id: 'linkedin',
-    label: 'LinkedIn',
-    handle: 'in/muhammadraffi',
-    url: 'https://linkedin.com/in/muhammadraffi',
-    icon: 'Linkedin',
-    color: '#0A66C2',
-  },
-  {
     id: 'github',
     label: 'GitHub',
-    handle: '@muhammad-raffi',
-    url: 'https://github.com/muhammad-raffi',
+    handle: '@VeTh021208',
+    url: 'https://github.com/VeTh021208',
     icon: 'Github',
     color: '#181717',
   },
   {
-    id: 'youtube',
-    label: 'YouTube',
-    handle: '@muhammadraffi',
-    url: 'https://youtube.com/@muhammadraffi',
-    icon: 'Youtube',
-    color: '#FF0000',
-  },
-  {
     id: 'tiktok',
     label: 'TikTok',
-    handle: '@muhammad.raffi',
-    url: 'https://tiktok.com/@muhammad.raffi',
+    handle: '@vethfish',
+    url: 'https://tiktok.com/@vethfish',
     icon: 'Music2',
     color: '#111111',
-  },
-  {
-    id: 'x',
-    label: 'X / Twitter',
-    handle: '@muhammad_raffi',
-    url: 'https://x.com/muhammad_raffi',
-    icon: 'Twitter',
-    color: '#000000',
-  },
-  {
-    id: 'facebook',
-    label: 'Facebook',
-    handle: 'muhammad.raffi',
-    url: 'https://facebook.com/muhammad.raffi',
-    icon: 'Facebook',
-    color: '#1877F2',
   },
   {
     id: 'email',
@@ -317,8 +301,8 @@ export const timeline = [
   {
     id: 'edu-1',
     period: '2024 — Sekarang',
-    title: 'SMK Jurusan Rekayasa Perangkat Lunak',
-    company: 'Kelas RPL',
+    title: 'SMK AK Nusa Bangsa',
+    company: 'Jurusan Rekayasa Perangkat Lunak',
     location: 'Bogor, Indonesia',
     type: 'education',
     description:
@@ -580,34 +564,34 @@ export const faqs = [
     id: 'f1',
     question: 'Menerima proyek kecil juga?',
     answer:
-      'Ya, justru proyek kecil adalah fokus saya sekarang. Website acara sekolah, katalog UMKM, atau tugas kuliah dan sekolah semuanya saya kerjakan dengan serius dan komunikasi yang jelas.',
+      'Ya, justru proyek kecil adalah fokus saya sekarang. Website acara sekolah, katalog UMKM, atau tugas dan proyek pribadi semuanya saya kerjakan dengan serius dan komunikasi yang jelas.',
   },
   {
-    id: 'f3',
+    id: 'f2',
     question: 'Berapa biaya jasa website?',
     answer:
       'Mulai dari Rp300 ribu untuk landing page sederhana. Biaya akhir tergantung jumlah halaman dan fitur yang dibutuhkan. Saya selalu kasih perkiraan biaya di awal sebelum mulai mengerjakan.',
   },
   {
-    id: 'f4',
+    id: 'f3',
     question: 'Bagaimana proses pengerjaannya?',
     answer:
       'Pertama kita diskusi kebutuhannya lewat WhatsApp. Lalu saya buatkan desain atau struktur halaman, lanjut coding, dan terakhir serah terima beserta panduan cara mengelolanya. Selama pengerjaan ada update berkala.',
   },
   {
-    id: 'f5',
+    id: 'f4',
     question: 'Bisa kerja remote dari luar kota?',
     answer:
       'Bisa. Sebagian besar proyek saya kerjakan online lewat WhatsApp, Google Meet, dan GitHub. Komunikasi jadi tetap lancar meski kita berbeda kota.',
   },
   {
-    id: 'f6',
+    id: 'f5',
     question: 'Teknologi apa yang dipakai?',
     answer:
       'Untuk website saya biasa memakai React, Tailwind CSS, dan Vite. Untuk aplikasi yang butuh database saya memakai PHP atau Node.js dengan MySQL. Desain UI saya kerjakan di Figma.',
   },
   {
-    id: 'f7',
+    id: 'f6',
     question: 'Apakah sedang menerima PKL?',
     answer:
       'Ya, saya sedang mempersiapkan diri untuk menjalani PKL di bidang web development. Saya antusias belajar langsung dari tim profesional dan siap berkontribusi. Silakan hubungi saya untuk berdiskusi lebih lanjut.',
@@ -675,13 +659,13 @@ export const quickReplies = [
       'Halo Kak Raffi! Saya tertarik untuk mendiskusikan proyek baru. Boleh jadwalkan sesi konsultasi gratis?',
   },
   {
-    id: 'q3',
+    id: 'q2',
     label: 'Tanya timeline',
     message:
       'Halo Kak Raffi! Saya sudah punya ide proyek dan ingin tahu estimasi waktu pengerjaannya. Boleh kita diskusikan?',
   },
   {
-    id: 'q4',
+    id: 'q3',
     label: 'Tanya portofolio',
     message:
       'Halo Kak Raffi! Saya sedang menelusuri portofolio kamu dan ingin mendiskusikan kemungkinan kerja sama.',
@@ -697,7 +681,7 @@ export const quickLinks = [
   { id: 'ql5', label: 'Karya', href: '#karya', icon: 'FolderGit2', group: 'Navigasi' },
   { id: 'ql6', label: 'Hubungi Saya', href: '#kontak', icon: 'MessageCircle', group: 'Navigasi' },
   {
-    id: 'ql6',
+    id: 'ql7',
     label: 'Chat via WhatsApp',
     href: `https://wa.me/${whatsapp.number}`,
     icon: 'MessageCircle',
@@ -705,7 +689,7 @@ export const quickLinks = [
     external: true,
   },
   {
-    id: 'ql7',
+    id: 'ql8',
     label: 'Unduh CV (PDF)',
     href: '/cv-muhammad-raffi-ar-rasyid.pdf',
     icon: 'Download',
@@ -713,38 +697,22 @@ export const quickLinks = [
     download: true,
   },
   {
-    id: 'ql8',
-    label: 'Lihat Instagram',
-    href: socials[0].url,
-    icon: 'Instagram',
-    group: 'Media Sosial',
-    external: true,
-  },
-  {
     id: 'ql9',
-    label: 'Lihat LinkedIn',
-    href: socials[1].url,
-    icon: 'Linkedin',
-    group: 'Media Sosial',
-    external: true,
-  },
-  {
-    id: 'ql10',
     label: 'Lihat GitHub',
-    href: socials[2].url,
+    href: socials[0].url,
     icon: 'Github',
     group: 'Media Sosial',
     external: true,
   },
   {
-    id: 'ql11',
+    id: 'ql12',
     label: 'Ganti Tema Terang atau Gelap',
     action: 'toggle-theme',
     icon: 'Moon',
     group: 'Preferensi',
   },
   {
-    id: 'ql12',
+    id: 'ql13',
     label: 'Salin Nomor WhatsApp',
     action: 'copy-wa',
     icon: 'Copy',

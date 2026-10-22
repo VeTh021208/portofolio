@@ -1,7 +1,7 @@
 import { motion } from 'motion/react'
 import { ArrowRight, Download, Eye, MapPin } from 'lucide-react'
 
-import { buildWhatsAppLink, processSteps, site } from '@/data/siteData'
+import { buildWhatsAppLink, heroStats, processSteps, site } from '@/data/siteData'
 import { usePrefersReducedMotion, useTypewriter } from '@/hooks/useUtils'
 import { Icon } from '@/components/ui/Icon'
 
@@ -101,12 +101,7 @@ export function Hero() {
 
             {/* Kepercayaan */}
             <motion.div {...rise(0.56)} className="mt-11 flex flex-wrap items-center gap-x-7 gap-y-3">
-              {[
-                { value: '3+', label: 'Proyek' },
-                { value: '6+', label: 'Teknologi' },
-                { value: '2 th', label: 'Belajar' },
-                { value: 'RPL', label: 'Jurusan' },
-              ].map((item) => (
+              {heroStats.map((item) => (
                 <div key={item.label} className="flex items-baseline gap-1.5">
                   <span className="font-display text-lg font-extrabold text-mint-600 dark:text-mint-300">{item.value}</span>
                   <span className="text-xs font-medium text-ink-muted">{item.label}</span>
@@ -160,11 +155,7 @@ function ProfileShowcase() {
     <div className="relative">
       {/* Cahaya di belakang */}
       <div
-        className="absolute -inset-8 -z-10 rounded-[3rem] blur-3xl"
-        style={{
-          background:
-            'radial-gradient(circle at 30% 20%, color-mix(in srgb, var(--color-mint-300) 70%, transparent), transparent 65%)',
-        }}
+        className="glow-mint absolute -inset-8 -z-10 rounded-[3rem] blur-3xl"
         aria-hidden="true"
       />
 
@@ -173,12 +164,12 @@ function ProfileShowcase() {
         {/* Foto profil sementara di dalam kartu */}
         <div className="relative mx-auto mb-6 w-full max-w-[18rem] overflow-hidden rounded-2xl border border-line bg-canvas">
           <img
-            src="/hero-profile.png"
+            src="/Beranda.jpeg"
             alt={`Foto ${site.name}`}
             width={543}
             height={543}
             loading="eager"
-            className="h-60 w-full object-cover object-top"
+            className="h-72 w-full object-cover object-[center_25%]"
           />
         </div>
 
@@ -210,7 +201,7 @@ function ProfileShowcase() {
         <ul className="space-y-2.5">
           {processSteps.slice(0, 3).map((step, index) => (
             <motion.li
-              key={step.id}
+              key={step.step}
               initial={reduced ? undefined : { opacity: 0, x: -14 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.9 + index * 0.1, duration: 0.5 }}

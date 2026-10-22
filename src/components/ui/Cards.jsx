@@ -234,5 +234,3 @@ export function WhatsAppButton({ message, children = 'Pesan via WhatsApp', class
     </a>
   )
 }
-
-export { Calendar, Check, MapPin }

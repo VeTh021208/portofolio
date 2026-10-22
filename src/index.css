@@ -817,6 +817,17 @@
     background-size: 64px 64px;
   }
 
+  /* ---------- Cahaya lembut di belakang elemen ---------- */
+  .glow-mint {
+    background: radial-gradient(circle at 35% 25%, color-mix(in srgb, var(--color-mint-300) 70%, transparent), transparent 65%);
+  }
+  .glow-mint-top {
+    background: radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--color-mint-200) 45%, transparent), transparent 70%);
+  }
+  .glow-mint-center {
+    background: radial-gradient(circle, color-mix(in srgb, var(--color-mint-300) 45%, transparent), transparent 70%);
+  }
+
   /* ---------- Halftone manga ---------- */
   .halftone {
     background-image: radial-gradient(circle, color-mix(in srgb, var(--color-ink) 15%, transparent) 1px, transparent 1.3px);
